@@ -1,18 +1,16 @@
-from playwright.sync_api import BrowserContext, Playwright, sync_playwright
+from playwright.sync_api import BrowserContext, Browser, Playwright, sync_playwright
 
 _playwright: Playwright | None = None
-_browser: BrowserContext | None = None
+_browser: Browser | None = None
+_context: BrowserContext | None = None
 
 
-def get_browser(
-    user_data_dir: str = r"C:\chrome-profile",
-    headless: bool = True,
-) -> BrowserContext:
-    global _playwright, _browser
-    if _browser is None:
+def get_browser(headless: bool = True) -> BrowserContext:
+    global _playwright, _browser, _context
+
+    if _context is None:
         _playwright = sync_playwright().start()
-        _browser = _playwright.chromium.launch_persistent_context(
-            user_data_dir=user_data_dir,
+        _browser = _playwright.chromium.launch(
             headless=headless,
             channel="chrome",
             args=[
@@ -24,6 +22,8 @@ def get_browser(
                 "--start-maximized",
             ],
             ignore_default_args=["--enable-automation"],
+        )
+        _context = _browser.new_context(
             viewport={"width": 1920, "height": 1080},
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -31,14 +31,30 @@ def get_browser(
                 "Chrome/136.0.0.0 Safari/537.36"
             ),
         )
-    return _browser
+
+    return _context
 
 
 def close_browser() -> None:
-    global _playwright, _browser
+    global _playwright, _browser, _context
+
+    if _context:
+        try:
+            _context.close()
+        except Exception:
+            pass
+        _context = None
+
     if _browser:
-        _browser.close()
+        try:
+            _browser.close()
+        except Exception:
+            pass
         _browser = None
+
     if _playwright:
-        _playwright.stop()
+        try:
+            _playwright.stop()
+        except Exception:
+            pass
         _playwright = None
