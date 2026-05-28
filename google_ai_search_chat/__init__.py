@@ -6,8 +6,8 @@ via Playwright, supporting multiple independent chat sessions and image uploads.
 
 Example:
     Basic usage:
-    >>> from google_ai_chat import GoogleAISession
-    >>> session = GoogleAISession(user_data_dir=r"C:\\chrome-profile")
+    >>> from google_ai_search_chat import GoogleAISession
+    >>> session = GoogleAISession(user_data_dir="C:/chrome-profile")
     >>> chat = session.new_chat()
     >>> response = chat.send_message("Hello!")
     >>> print(response)
