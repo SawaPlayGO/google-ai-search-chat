@@ -1,4 +1,5 @@
 include README.md
 include LICENSE
 include pyproject.toml
-recursive-include google_ai_chat *.py
+recursive-include google_ai_search_chat *.py
+recursive-include google_ai_search_chat py.typed

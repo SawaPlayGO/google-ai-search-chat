@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "google-ai-search-chat"
-version = "0.1.4"
+version = "0.1.5"
 description = "Unofficial Python client for Google AI Search with multi-tab chat support"
 readme = "README.md"
 license = {text = "MIT"}
@@ -49,6 +49,16 @@ path = "google_ai_search_chat/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["google_ai_search_chat"]
+include = [
+    "/google_ai_search_chat",
+    "/google_ai_search_chat/py.typed",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/google_ai_search_chat",
+    "/MANIFEST.in",
+]
 
 [tool.black]
 line-length = 100
