@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from .browser import get_browser, close_browser
 from .chat import ChatGoogleAI
 

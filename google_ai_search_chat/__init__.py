@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 """
 Google AI Search - Unofficial Python client for Google AI Search.
 
@@ -24,7 +26,7 @@ Example:
     ...     response = chat.send_message("What's in this?", f.read())
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.8"
 __author__ = "Google AI Search Contributors"
 __license__ = "MIT"
 

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from playwright.sync_api import BrowserContext, Browser, Playwright, sync_playwright
 
 _playwright: Playwright | None = None
