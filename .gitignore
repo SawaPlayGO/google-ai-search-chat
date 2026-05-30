@@ -27,6 +27,7 @@ share/python-wheels/
 *.egg
 main.py
 MANIFEST
+/profiles
 
 # Unit test / coverage reports
 htmlcov/

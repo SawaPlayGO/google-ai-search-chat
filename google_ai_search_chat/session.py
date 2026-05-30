@@ -16,8 +16,9 @@ class GoogleAISession:
     def __init__(
         self,
         headless: bool = True,
+        user_data_dir: str | None = None,
     ):
-        self._browser = get_browser(headless=headless)
+        self._browser = get_browser(headless=headless, user_data_dir=user_data_dir)
         self._chats: list[ChatGoogleAI] = []
 
     def new_chat(self) -> ChatGoogleAI:
