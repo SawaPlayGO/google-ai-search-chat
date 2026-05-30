@@ -4,6 +4,8 @@
 [![Python 3.12+](https://img.shields.io/badge/python-3.12%2B-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+https://github.com/user-attachments/assets/48528c71-e68c-4291-96bc-4dd929efa872
+
 Unofficial Python client for [Google AI Search](https://www.google.com/search?sca_esv=59e8ea9c916b862d&udm=50) with support for multiple independent chat sessions using browser automation.
 
 ## Features
